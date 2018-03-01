@@ -64,19 +64,25 @@ int main(){
         cout << (k>0?"9":number) <<endl;
         return 0;
     }
-        
+    //Count the number of different pairs in the digits
     for(int i=0;i<middleIdx;++i){
         if(number[i]!=number[n-i-1]){            
             ++diffNum;
         }            
     }
+   // Print -1 if making palindrome is impossible
     if(diffNum>k){
         cout << "-1" << endl;
         return 0;
     }
+   
     for(int i=0;i<middleIdx;++i){
-       if(k<1) break;           
+       // Run out of changing quota
+       if(k<1) break;     
        if(number[i]!=number[n-i-1]){
+           // if both of the digits is not 9 and the quota is sufficient,
+           // change both digits to 9;
+           // Else, change the smaller digit to the bigger digit
            if( number[i]<'9' && number[n-i-1]<'9' && (k-diffNum)>0){
                setNine(number[i],number[n-i-1]);               
                k=k-2;
@@ -86,14 +92,12 @@ int main(){
                --k;
                --diffNum;
            }
-         continue;
-       }
-       if(number[i]<'9' && (k-diffNum)>1){            
+       }else if(number[i]<'9' && (k-diffNum)>1){            
           setNine(number[i],number[n-i-1]);
           k=k-2;
-           
-        }      
+       }      
     }
+    // If there's still quota, set the middle digit to 9 
     if(k>0 && n%2==1){
         number[middleIdx]='9';
     }
