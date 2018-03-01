@@ -1,36 +1,39 @@
 /*
 @https://www.hackerrank.com/challenges/richie-rich
 
-Sandy likes palindromes. A palindrome is a word, phrase, number, or other 
-sequence of characters which reads the same backward as it does forward. 
-For example, madam is a palindrome.
+Palindromes are strings that read the same from the left or right, for example madam or 0110.
 
-On her 7th birthday, Sandy's uncle, Richie Rich, offered her an -digit check which she 
-refused because the number was not a palindrome. Richie then challenged Sandy to 
-make the number palindromic by changing no more than k digits. Sandy can only change  
-digit at a time, and cannot add digits to (or remove digits from) the number.
+You will be given a string representation of a number and a maximum number of changes you can make. 
+Alter the string, one digit at a time, to create the string representation of the largest number 
+possible given the limit to the number of changes. The length of the string may not be altered, so 
+you must consider 0's left of all higher digits in your tests. For example 0110 is valid, 0011 is not.
 
-Given k and an n-digit number, help Sandy determine the largest possible number she can 
-make by changing<=k digits.
-
-Note: Treat the integers as numeric strings. Leading zeros are permitted and can't be ignored 
-(So 0011 is not a palindrome, 0110 is a valid palindrome). A digit can be modified more than once.
+Given a string representing the starting number and a maximum number of changes allowed, create the 
+largest palindromic string of digits possible or the string -1 if it's impossible to create a palindrome
+under the contstraints.
 
 Input Format
 
-The first line contains two space-separated integers,  (the number of digits in the number) and  
-(the maximum number of digits that can be altered), respectively. 
-The second line contains an -digit string of numbers that Sandy must attempt to make palindromic.
-
-Constraints
-0<=n<=10^5;
-0<=k<=10^5;
-Each character i in the number is an integer where 0<=i<=9.
-
-Output Format
+The first line contains two space-separated integers,  n(the number of digits in the number) and  
+k(the maximum number of changes allowed), respectively. 
+The second line contains an n-digit string of numbers that you are to attempt to make palindromic.
 
 Print a single line with the largest number that can be made by changing no more than k digits; 
 if this is not possible, print -1.
+
+Sample Input 0
+4 1
+3943
+
+Sample Output 0
+3993
+
+Sample Input 1
+6 3
+092282
+
+Sample Output 1
+992299
 */
 
 #include <string>
