@@ -1,1 +1,1 @@
-Learning by Practi
+Learning by Practice
