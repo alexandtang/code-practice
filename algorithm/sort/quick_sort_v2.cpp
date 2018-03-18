@@ -27,7 +27,10 @@ void quickSort(vector<int> &vec,int begin,int end){
      
     int pivot = vec[end];
     int pivotIdx = begin;  
-        
+    // Go through the list to get the pivot index for pivot(vec[end]),
+    // and put all the item to the left side of the pivot index.
+    // In other words, the pivot index is the number of items which are 
+    // smaller than the pivot.
     for(int i=begin;i<end;++i){
         if(vec[i]<=pivot){
             if(i>pivotIdx){
@@ -36,9 +39,10 @@ void quickSort(vector<int> &vec,int begin,int end){
             ++pivotIdx; 
         }
     }
-    
+    // IMPORTANT - put the pivot to the place where it should be
     swap(vec[end],vec[pivotIdx]);   
     printVec(vec);
+    // Sort left side and right side
     quickSort(vec,begin,pivotIdx-1);
     quickSort(vec,pivotIdx+1,end);  
     
